@@ -7,14 +7,13 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { MainPage } from 'pages/MainPage'
 import { AboutPage } from 'pages/AboutPage'
 import { AppRouter } from 'app/providers/router'
+import { Navbar } from 'widgets/Navbar'
 
 export const App = () => {
-    const { theme, toggleTheme } = useTheme()
+    const { theme } = useTheme()
     return (
         <div className={classNames('App', { hovered: true }, [theme])}>
-            <button onClick={toggleTheme}>Toggle theme</button>
-            <Link to={'/'}>Главная</Link>
-            <Link to={'/about'}>Информация</Link>
+            <Navbar></Navbar>
             <AppRouter />
         </div>
     )
