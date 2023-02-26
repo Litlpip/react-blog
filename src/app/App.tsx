@@ -8,13 +8,20 @@ import { MainPage } from 'pages/MainPage'
 import { AboutPage } from 'pages/AboutPage'
 import { AppRouter } from 'app/providers/router'
 import { Navbar } from 'widgets/Navbar'
+import { Sidebar } from 'widgets/Sidebar'
+import { useTranslation } from 'react-i18next'
 
 export const App = () => {
     const { theme } = useTheme()
     return (
         <div className={classNames('App', { hovered: true }, [theme])}>
-            <Navbar></Navbar>
-            <AppRouter />
+            <Suspense fallback="">
+                <Navbar></Navbar>
+                <div className="content-page">
+                    <Sidebar></Sidebar>
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
     )
 }
