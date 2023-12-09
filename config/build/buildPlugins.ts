@@ -1,11 +1,11 @@
-import HTMLWebpackPlugin from 'html-webpack-plugin'
-import webpack from 'webpack'
-import { BuildPaths } from './types/config'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import HTMLWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildPaths } from './types/config';
 
 export function buildPlugins(
     { htmlPath }: BuildPaths,
-    isDev: boolean
+    isDev: boolean,
 ): webpack.WebpackPluginInstance[] {
     return [
         new HTMLWebpackPlugin({
@@ -20,5 +20,5 @@ export function buildPlugins(
             __IS_DEV__: isDev,
         }),
         new webpack.HotModuleReplacementPlugin(),
-    ]
+    ];
 }
